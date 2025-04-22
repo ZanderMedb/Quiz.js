@@ -1,0 +1,75 @@
+body {
+    background: #f6f6ff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 470px;
+    margin: 36px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 32px #0002;
+    padding: 28px 24px 22px 24px;
+  }
+  h1, h2, h3 {
+    text-align: center;
+    color: #3c3577;
+    margin-bottom: 16px;
+  }
+  p {
+    color: #43425c;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+  .start-btn, .option-btn, .restart-btn {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 12px 0;
+    background: linear-gradient(90deg, #7b5cff 40%, #62b5fc 100%);
+    color: #fff;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .start-btn:hover, .option-btn:hover, .restart-btn:hover {
+    background: linear-gradient(90deg, #62b5fc 10%, #7b5cff 90%);
+    transform: scale(1.03);
+  }
+  .question {
+    margin-bottom: 16px;
+    font-size: 1.15em;
+    color: #352f55;
+  }
+  .progress {
+    text-align: right;
+    font-size: 0.98em;
+    color: #7b5cff;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .character-img {
+    font-size: 4em;
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .result-score {
+    text-align: center;
+    font-size: 1.3em;
+    color: #7b5cff;
+  }
+  @media (max-width: 540px) {
+    .container {
+      margin: 12px 4px;
+      padding: 14px 5vw 12px 5vw;
+    }
+    h1 { font-size: 1.23em; }
+    h2 { font-size: 1.1em; }
+    .character-img { font-size: 2.5em; }
+  }
+  
