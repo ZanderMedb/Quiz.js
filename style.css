@@ -1,75 +1,142 @@
+/* Estilos gerais */
 body {
-    background: #f6f6ff;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+  background-image: url('./assets/background.jpg'); /* Caminho da imagem de fundo */
+  background-size: cover; /* Faz a imagem cobrir toda a tela */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Garante centralização vertical */
+}
+
+.container {
+  max-width: 520px; /* Largura máxima */
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
+  border-radius: 12px;
+  box-shadow: 0 4px 32px #0002;
+  padding: 36px 28px 28px 28px; /* Espaçamento interno */
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: #3c3577;
+  margin-bottom: 16px;
+}
+
+p {
+  color: #43425c;
+  line-height: 1.6; /* Espaçamento entre linhas */
+  margin-bottom: 20px;
+}
+
+/* Estilo base para todos os botões */
+button,
+a.start-btn,
+a.option-btn,
+a.restart-btn,
+a.saiba-mais-btn {
+  display: block; /* Garante que ocupem a largura definida */
+  width: 100%; /* Todos os botões terão a mesma largura */
+  max-width: 300px; /* Define um limite máximo para o tamanho */
+  margin: 14px auto; /* Centraliza horizontalmente */
+  padding: 14px 0; /* Ajusta a altura do botão */
+  background: linear-gradient(90deg, #7b5cff 40%, #62b5fc 100%);
+  color: #fff;
+  font-size: 1.2em; /* Tamanho do texto consistente */
+  font-weight: bold;
+  text-align: center; /* Centraliza o texto dentro do botão */
+  text-decoration: none; /* Remove sublinhado dos links */
+  border: none;
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+/* Efeito hover para todos os botões */
+button:hover,
+a.start-btn:hover,
+a.option-btn:hover,
+a.restart-btn:hover,
+a.saiba-mais-btn:hover {
+  background: linear-gradient(90deg, #62b5fc 10%, #7b5cff 90%);
+  transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+/* Ajuste para botões de respostas */
+.option-btn {
+  font-size: 1.2em; /* Mesma fonte dos outros botões */
+}
+
+/* Centralizar o contêiner de botões nas páginas de personagens */
+.personagem-container a {
+  display: block;
+  margin: 12px auto;
+  text-align: center;
+}
+
+/* Progresso */
+.progress {
+  text-align: right;
+  font-size: 1em;
+  color: #7b5cff;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+/* Pergunta */
+.question {
+  margin-bottom: 20px; /* Espaçamento inferior */
+  font-size: 1.25em; /* Texto maior */
+  color: #352f55;
+}
+
+/* Imagem menor no resultado */
+.character-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; /* Garante que a imagem preencha o espaço corretamente */
+  border-radius: 50%; /* Deixa a imagem em formato circular */
+  margin: 0 auto; /* Centraliza a imagem */
+  display: block;
+}
+
+/* Imagem maior na página do personagem */
+.personagem-img {
+  width: 100%; /* Adapta ao tamanho do contêiner */
+  max-width: 600px;
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 12px; /* Cantos levemente arredondados */
+  margin: 20px auto; /* Espaçamento ao redor da imagem */
+  display: block; /* Centraliza a imagem */
+}
+
+/* Pontuação do resultado */
+.result-score {
+  text-align: center;
+  font-size: 1.3em;
+  color: #7b5cff;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 540px) {
   .container {
-    max-width: 470px;
-    margin: 36px auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 32px #0002;
-    padding: 28px 24px 22px 24px;
+    margin: 12px 4px;
+    padding: 16px 5vw 14px 5vw; /* Mais espaçamento interno em telas pequenas */
   }
-  h1, h2, h3 {
-    text-align: center;
-    color: #3c3577;
-    margin-bottom: 16px;
+  h1 {
+    font-size: 1.3em;
   }
-  p {
-    color: #43425c;
-    line-height: 1.5;
-    margin-bottom: 18px;
-  }
-  .start-btn, .option-btn, .restart-btn {
-    display: block;
-    width: 100%;
-    margin: 12px 0;
-    padding: 12px 0;
-    background: linear-gradient(90deg, #7b5cff 40%, #62b5fc 100%);
-    color: #fff;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .start-btn:hover, .option-btn:hover, .restart-btn:hover {
-    background: linear-gradient(90deg, #62b5fc 10%, #7b5cff 90%);
-    transform: scale(1.03);
-  }
-  .question {
-    margin-bottom: 16px;
-    font-size: 1.15em;
-    color: #352f55;
-  }
-  .progress {
-    text-align: right;
-    font-size: 0.98em;
-    color: #7b5cff;
-    margin-bottom: 10px;
-    font-weight: bold;
+  h2 {
+    font-size: 1.2em;
   }
   .character-img {
-    font-size: 4em;
-    display: block;
-    text-align: center;
-    margin-bottom: 12px;
+    font-size: 3em;
   }
-  .result-score {
-    text-align: center;
-    font-size: 1.3em;
-    color: #7b5cff;
-  }
-  @media (max-width: 540px) {
-    .container {
-      margin: 12px 4px;
-      padding: 14px 5vw 12px 5vw;
-    }
-    h1 { font-size: 1.23em; }
-    h2 { font-size: 1.1em; }
-    .character-img { font-size: 2.5em; }
-  }
-  
+}
