@@ -1,26 +1,33 @@
 const personagens = [
   {
     nome: "Lúmina, Guardiã da Terra",
-    descricao: "Sábia e protetora, Lúmina representa a força da natureza e a estabilidade das montanhas.",
-    emoji: "🌿"
+    descricao:
+      "Sábia e protetora, Lúmina representa a força da natureza e a estabilidade das montanhas.",
+    imagem: "./assets/terra.png", // Substitua pelo caminho da imagem
+    link: "./personagens/lu.html",
   },
   {
     nome: "Nayra, Guardiã da Água",
-    descricao: "Empática e fluida, Nayra traz compaixão, cura e equilíbrio às correntes da vida.",
-    emoji: "💧"
+    descricao:
+      "Empática e fluida, Nayra traz compaixão, cura e equilíbrio às correntes da vida.",
+    imagem: "./assets/agua1.png", // Substitua pelo caminho da imagem
+    link: "./personagens/nay.html",
   },
   {
     nome: "Kael, Guardião do Fogo",
-    descricao: "Corajoso e impulsivo, Kael é a chama viva da paixão e do poder de mudança.",
-    emoji: "🔥"
+    descricao:
+      "Corajoso e impulsivo, Kael é a chama viva da paixão e do poder de mudança.",
+    imagem: "./assets/fogo.png", // Substitua pelo caminho da imagem
+    link: "./personagens/ka.html",
   },
   {
     nome: "Zephyr, Guardião do Ar",
-    descricao: "Sereno e sábio, Zephyr observa o mundo de cima e traz novas ideias com a leveza do vento.",
-    emoji: "🌬️"
-  }
+    descricao:
+      "Sereno e sábio, Zephyr observa o mundo de cima e traz novas ideias com a leveza do vento.",
+    imagem: "./assets/ar.png", // Substitua pelo caminho da imagem
+    link: "./personagens/zeh.html",
+  },
 ];
-
 
 const perguntas = [
   {
@@ -117,11 +124,15 @@ const perguntas = [
 
 let estadoQuiz = {
   indicePergunta: 0,
-  pontos: [0, 0, 0, 0]
+  pontos: [0, 0, 0, 0],
 };
 
+function embaralhar(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
 function renderInicio() {
-  const app = document.getElementById('app');
+  const app = document.getElementById("app");
   app.innerHTML = `
     <h1>Bem-vindo(a) à Alquebra!</h1>
     <p>
@@ -129,12 +140,12 @@ function renderInicio() {
 
       <br><br>
 
-      Nessa terra envolta por nevóas passadas e segredos levados pelo vento,
+      Nessa terra envolta por névoas passadas e segredos levados pelo vento,
       quatro forças caminham sob formas humanas, cada uma espelhando um aspecto profundo da alma.
 
       <br><br>
 
-      Essas forças tomam vida em quatro figuras enigmáticas: Lúmina,Nayra, Kael e Zephyr. Não apenas guardiões dos elementos, mas manifestações vivas dos dilemas que habitam dentro de cada um de nós.
+      Essas forças tomam vida em quatro figuras enigmáticas: Lúmina, Nayra, Kael e Zephyr. Não apenas guardiões dos elementos, mas manifestações vivas dos dilemas que habitam dentro de cada um de nós.
       
       <br><br>
 
@@ -147,38 +158,49 @@ function renderInicio() {
       
       Descubra, através de um breve questionário, qual deles mais combina com você!
     </p>
-    <button class="start-btn" onclick="iniciarQuiz()">Começar!</button>
+    <button class="start-btn" id="startQuiz">Começar!</button>
   `;
+
+  // Adiciona o evento de clique ao botão "Começar"
+  document.getElementById("startQuiz").addEventListener("click", iniciarQuiz);
 }
 
 function iniciarQuiz() {
   estadoQuiz.indicePergunta = 0;
   estadoQuiz.pontos = [0, 0, 0, 0];
+  perguntasEmbaralhadas = embaralhar(perguntas);
   renderPergunta();
 }
 
 function renderPergunta() {
-  const app = document.getElementById('app');
-  const q = perguntas[estadoQuiz.indicePergunta];
+  const app = document.getElementById("app");
+  const q = perguntasEmbaralhadas[estadoQuiz.indicePergunta];
 
   let opcoesHtml = "";
-  q.opcoes.forEach((opc, idx) => {
-    opcoesHtml += `<button class="option-btn" onclick="selecionarOpcao(${idx})">${opc.texto}</button>`;
+  const opcoesEmbaralhadas = embaralhar(q.opcoes);
+  opcoesEmbaralhadas.forEach((opc, idx) => {
+    const classeElemento =
+      idx === 0 ? "terra" : idx === 1 ? "agua" : idx === 2 ? "fogo" : "ar";
+    opcoesHtml += `<button class="option-btn ${classeElemento}" onclick="selecionarOpcao(${idx})">${opc.texto}</button>`;
   });
 
   app.innerHTML = `
-    <div class="progress">Pergunta ${estadoQuiz.indicePergunta + 1} de ${perguntas.length}</div>
+    <div class="progress">Pergunta ${estadoQuiz.indicePergunta + 1} de ${
+    perguntas.length
+  }</div>
     <div class="question">${q.texto}</div>
     ${opcoesHtml}
   `;
 }
 
 function selecionarOpcao(indiceOpcao) {
-  const pontosOpc = perguntas[estadoQuiz.indicePergunta].opcoes[indiceOpcao].pontos;
+  const pontosOpc = perguntasEmbaralhadas[estadoQuiz.indicePergunta].opcoes[
+    indiceOpcao
+  ].pontos;
   estadoQuiz.pontos = estadoQuiz.pontos.map((p, i) => p + pontosOpc[i]);
   estadoQuiz.indicePergunta++;
 
-  if (estadoQuiz.indicePergunta >= perguntas.length) {
+  if (estadoQuiz.indicePergunta >= perguntasEmbaralhadas.length) {
     renderResultado();
   } else {
     renderPergunta();
@@ -186,26 +208,21 @@ function selecionarOpcao(indiceOpcao) {
 }
 
 function renderResultado() {
-  const app = document.getElementById('app');
+  const app = document.getElementById("app");
   const maxPontos = Math.max(...estadoQuiz.pontos);
-  const indicesVencedores = estadoQuiz.pontos.reduce((arr, val, idx) => {
-    if (val === maxPontos) arr.push(idx);
-    return arr;
-  }, []);
-  const idxPersonagem = indicesVencedores[0];
+  const idxPersonagem = estadoQuiz.pontos.indexOf(maxPontos);
   const personagem = personagens[idxPersonagem];
-
+  
   app.innerHTML = `
-    <h2>Seu resultado:</h2>
-    <div class="character-img">${personagem.emoji}</div>
-    <h3>${personagem.nome}</h3>
-    <p>${personagem.descricao}</p>
-    <div class="result-score">Pontuação: ${maxPontos} pontos</div>
-    <button class="restart-btn" onclick="renderInicio()">Recomeçar</button>
-  `;
+  <h2>Seu resultado:</h2>
+  <img src="${personagem.imagem}" alt="${personagem.nome}" class="character-img" />
+  <h3>${personagem.nome}</h3>
+  <p>${personagem.descricao}</p>
+  <div class="result-score">Pontuação: ${maxPontos} pontos</div>
+  <button class="restart-btn" onclick="renderInicio()">Recomeçar</button>
+  <a href="${personagem.link}" class="saiba-mais-btn">Saiba Mais</a>
+`;
 }
 
+// Renderiza o início ao carregar a página
 renderInicio();
-window.iniciarQuiz = iniciarQuiz;
-window.selecionarOpcao = selecionarOpcao;
-window.renderInicio = renderInicio;
