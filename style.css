@@ -1,25 +1,25 @@
 /* Estilos gerais */
 body {
-  background-image: url('./assets/background.jpg'); /* Caminho da imagem de fundo */
-  background-size: cover; /* Faz a imagem cobrir toda a tela */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-image: url('./assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Garante centralização vertical */
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 520px; /* Largura máxima */
+  max-width: 520px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
   box-shadow: 0 4px 32px #0002;
-  padding: 36px 28px 28px 28px; /* Espaçamento interno */
+  padding: 36px 28px 28px 28px;
 }
 
 h1,
@@ -32,56 +32,52 @@ h3 {
 
 p {
   color: #43425c;
-  line-height: 1.6; /* Espaçamento entre linhas */
+  line-height: 1.6;
   margin-bottom: 20px;
 }
 
-/* Estilo base para todos os botões */
 button,
 a.start-btn,
 a.option-btn,
 a.restart-btn,
 a.saiba-mais-btn {
-  display: block; /* Garante que ocupem a largura definida */
-  width: 100%; /* Todos os botões terão a mesma largura */
-  max-width: 300px; /* Define um limite máximo para o tamanho */
-  margin: 14px auto; /* Centraliza horizontalmente */
-  padding: 14px 0; /* Ajusta a altura do botão */
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 14px auto;
+  padding: 14px 0;
   background: linear-gradient(90deg, #7b5cff 40%, #62b5fc 100%);
   color: #fff;
-  font-size: 1.2em; /* Tamanho do texto consistente */
+  font-size: 1.2em;
   font-weight: bold;
-  text-align: center; /* Centraliza o texto dentro do botão */
-  text-decoration: none; /* Remove sublinhado dos links */
+  text-align: center;
+  text-decoration: none;
   border: none;
-  border-radius: 10px; /* Bordas arredondadas */
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
 
-/* Efeito hover para todos os botões */
+
 button:hover,
 a.start-btn:hover,
 a.option-btn:hover,
 a.restart-btn:hover,
 a.saiba-mais-btn:hover {
   background: linear-gradient(90deg, #62b5fc 10%, #7b5cff 90%);
-  transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+  transform: scale(1.05);
 }
 
-/* Ajuste para botões de respostas */
 .option-btn {
-  font-size: 1.2em; /* Mesma fonte dos outros botões */
+  font-size: 1.2em;
 }
 
-/* Centralizar o contêiner de botões nas páginas de personagens */
 .personagem-container a {
   display: block;
   margin: 12px auto;
   text-align: center;
 }
 
-/* Progresso */
 .progress {
   text-align: right;
   font-size: 1em;
@@ -90,45 +86,40 @@ a.saiba-mais-btn:hover {
   font-weight: bold;
 }
 
-/* Pergunta */
 .question {
-  margin-bottom: 20px; /* Espaçamento inferior */
-  font-size: 1.25em; /* Texto maior */
+  margin-bottom: 20px;
+  font-size: 1.25em;
   color: #352f55;
 }
 
-/* Imagem menor no resultado */
 .character-img {
   width: 200px;
   height: 200px;
-  object-fit: cover; /* Garante que a imagem preencha o espaço corretamente */
-  border-radius: 50%; /* Deixa a imagem em formato circular */
-  margin: 0 auto; /* Centraliza a imagem */
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
   display: block;
 }
 
-/* Imagem maior na página do personagem */
 .personagem-img {
-  width: 100%; /* Adapta ao tamanho do contêiner */
+  width: 100%;
   max-width: 600px;
-  height: auto; /* Mantém a proporção da imagem */
-  border-radius: 12px; /* Cantos levemente arredondados */
-  margin: 20px auto; /* Espaçamento ao redor da imagem */
-  display: block; /* Centraliza a imagem */
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto;
+  display: block;
 }
 
-/* Pontuação do resultado */
 .result-score {
   text-align: center;
   font-size: 1.3em;
   color: #7b5cff;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 540px) {
   .container {
     margin: 12px 4px;
-    padding: 16px 5vw 14px 5vw; /* Mais espaçamento interno em telas pequenas */
+    padding: 16px 5vw 14px 5vw;
   }
   h1 {
     font-size: 1.3em;
