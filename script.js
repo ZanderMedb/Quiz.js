@@ -2,29 +2,29 @@ const personagens = [
   {
     nome: "Lúmina, Guardiã da Terra",
     descricao:
-      "Sábia e protetora, Lúmina representa a força da natureza e a estabilidade das montanhas.",
-    imagem: "./assets/terra.png", // Substitua pelo caminho da imagem
+      "Lúmina é a personificação da firmeza, da sabedoria e da força silenciosa que habita no coração da Terra. Como Guardiã das Raízes Eternas, ela domina o terreno como ninguém: ergue muralhas, fortalece aliados e controla o campo de batalha com a precisão de quem entende os ciclos naturais da vida. Sua presença transmite estabilidade e coragem, e seu olhar carrega o peso de eras passadas. Mais do que uma guerreira, Lúmina é uma guia espiritual, uma protetora que luta não por glória, mas pela harmonia entre os elementos. Onde ela pisa, a terra floresce — e onde se ergue, nada a derruba.",
+    imagem: "./assets/terra.png",
     link: "./personagens/lu.html",
   },
   {
     nome: "Nayra, Guardiã da Água",
     descricao:
-      "Empática e fluida, Nayra traz compaixão, cura e equilíbrio às correntes da vida.",
-    imagem: "./assets/agua1.png", // Substitua pelo caminho da imagem
+      "Nayra é fluida, serena e profundamente sensível às dores do mundo. Sua força vem da capacidade de se adaptar, de acolher e de transformar até os conflitos mais árduos em caminhos de cura. Como Guardiã da Água, ela controla rios, mares e correntes espirituais com maestria, sendo tanto uma guerreira quanto uma curandeira nata. Seu domínio permite apagar incêndios de raiva, suavizar terrenos ásperos e devolver a vida onde há secura. Nayra é a voz do coração, o toque da empatia e a presença calma que antecede a grande onda da transformação.",
+    imagem: "./assets/agua1.png",
     link: "./personagens/nay.html",
   },
   {
     nome: "Kael, Guardião do Fogo",
     descricao:
-      "Corajoso e impulsivo, Kael é a chama viva da paixão e do poder de mudança.",
-    imagem: "./assets/fogo.png", // Substitua pelo caminho da imagem
+      "Kael é paixão em forma de guerreiro. Seu espírito é intenso, direto e carregado de energia que queima, mas também aquece. Como Guardião do Fogo, ele representa a coragem, a força de vontade e a capacidade de transformar dor em poder. Ele avança onde outros hesitam, acende esperanças onde só havia cinzas e luta com a fúria de um sol nascente. Sua chama é guia, sua presença é impulso, e seu coração é uma fornalha que arde com propósito.",
+    imagem: "./assets/fogo.png",
     link: "./personagens/ka.html",
   },
   {
     nome: "Zephyr, Guardião do Ar",
     descricao:
-      "Sereno e sábio, Zephyr observa o mundo de cima e traz novas ideias com a leveza do vento.",
-    imagem: "./assets/ar.png", // Substitua pelo caminho da imagem
+      "Zephyr é leve como uma brisa e veloz como o pensamento. Dotado de inteligência aguçada e um espírito livre, ele domina os ventos com maestria, usando a velocidade, a estratégia e a comunicação como suas maiores armas. Como Guardião do Ar, representa a sabedoria, a curiosidade e a capacidade de se adaptar e elevar qualquer situação. Seus golpes são rápidos, sua mente é ágil, e sua presença é como o próprio vento: sutil, mas impossível de ignorar. Onde há silêncio, ele traz ideias; onde há caos, ele sopra direção.",
+    imagem: "./assets/ar.png",
     link: "./personagens/zeh.html",
   },
 ];
@@ -161,7 +161,6 @@ function renderInicio() {
     <button class="start-btn" id="startQuiz">Começar!</button>
   `;
 
-  // Adiciona o evento de clique ao botão "Começar"
   document.getElementById("startQuiz").addEventListener("click", iniciarQuiz);
 }
 
@@ -224,5 +223,4 @@ function renderResultado() {
 `;
 }
 
-// Renderiza o início ao carregar a página
 renderInicio();
